@@ -1,15 +1,3 @@
-name: CI
-
-on: [push, workflow_dispatch]
-
-jobs:
-  build:
-
-    runs-on: windows-latest
-
-    steps:
-    - name: Download
-  Extract
     run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name:       run: Expand-Archive ngrok.zip
     - name: Auth
@@ -23,3 +11,4 @@ jobs:
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "Shahid@123" -Force)
     - name: Create Tunnel
       run: .\ngrok\ngrok.exe tcp 3389
+
